@@ -1,4 +1,5 @@
 NAME	= push_swap
+FLAGS	= -Wall -Wextra -Werror
 BONUS_NAME = checker
 CC		= cc
 LIBFT	= libft/libft.a
@@ -27,12 +28,12 @@ OBJ_BONUS	= $(SRC_BONUS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(OBJ_PSP) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJ) $(OBJ_PSP) $(LIBFT)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(OBJ_PSP) $(LIBFT)
 
 $(BONUS_NAME) : $(OBJ) $(OBJ_BONUS) $(LIBFT)
 
 $(OBJ) : $(SRC)
-	$(CC) -c $(SRC)
+	$(CC) $(FLAGS) -c $(SRC)
 
 $(LIBFT):
 	make -C ./libft
@@ -46,7 +47,7 @@ clean:
 bonus: $(BONUS_NAME) 
 
 $(BONUS_NAME): $(OBJ_BONUS) $(LIBFT)
-	$(CC) -o $@ $(OBJ_BONUS) $(OBJ) $(LIBFT)
+	$(CC) $(FLAGS) -o $@ $(OBJ_BONUS) $(OBJ) $(LIBFT)
 
 fclean : clean
 	$(RM) $(NAME)

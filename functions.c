@@ -77,7 +77,7 @@ void	args(char **argv, t_stack *a, int i)
 	while (--i > 0)
 	{
 		mynums = ft_split(argv[i], ' ');
-		if (mynums[0] == '\0')
+		if (*mynums[0] == '\0')
 			print_error(a);
 		size_arg = num_words(argv[i], ' ') - 1;
 		while (mynums[size_arg] && size_arg >= 0)
